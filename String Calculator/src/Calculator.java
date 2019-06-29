@@ -24,13 +24,16 @@ public class Calculator {
             for(String number : arrayNumbers)
             {
                 if(!number.isEmpty()) {
-                    if(Integer.parseInt(number) < 0)
+                    int integerNumber = Integer.parseInt(number);
+                    if(integerNumber < 0)
                     {
-                        negativeNumbers.add(Integer.parseInt(number));
+                        negativeNumbers.add(integerNumber);
                     }
                     else
                     {
-                        result += Integer.parseInt(number);
+                        if(integerNumber <= 1000) {
+                            result += integerNumber;
+                        }
                     }
                 }
             }
@@ -38,7 +41,6 @@ public class Calculator {
         if(negativeNumbers.size() > 0)
         {
             throw new RuntimeException("Negatives not allowed: " + negativeNumbers.toString());
-
         }
         return result;
     }
