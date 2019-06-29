@@ -12,7 +12,7 @@ public class Calculator {
     {
         int result = 0;
         if(!numbers.isEmpty()) {
-            String[] arrayNumbers = numbers.split(",");
+            String[] arrayNumbers = numbers.split(",|\\\\n");
             for(String number : arrayNumbers)
             {
                 if(!number.isEmpty()) {
