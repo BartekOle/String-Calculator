@@ -11,8 +11,14 @@ public class Calculator {
     public static int Add(String numbers)
     {
         int result = 0;
+        String delimeter = ",|\\\\n";
         if(!numbers.isEmpty()) {
-            String[] arrayNumbers = numbers.split(",|\\\\n");
+            if(numbers.startsWith("//"))
+            {
+                delimeter = String.valueOf(numbers.charAt(2));
+                numbers = numbers.substring(5);
+            }
+            String[] arrayNumbers = numbers.split(delimeter);
             for(String number : arrayNumbers)
             {
                 if(!number.isEmpty()) {
