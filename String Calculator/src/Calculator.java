@@ -17,21 +17,17 @@ public class Calculator {
         if(!numbers.isEmpty()) {
             if(numbers.startsWith("//"))
             {
-                delimeter = String.valueOf(numbers.charAt(2));
-                numbers = numbers.substring(5);
+                delimeter = numbers.substring(2, numbers.indexOf("]")+1);
+                numbers = numbers.substring(numbers.indexOf("]")+3);
             }
             String[] arrayNumbers = numbers.split(delimeter);
-            for(String number : arrayNumbers)
-            {
-                if(!number.isEmpty()) {
+            for(String number : arrayNumbers) {
+                if (!number.isEmpty()) {
                     int integerNumber = Integer.parseInt(number);
-                    if(integerNumber < 0)
-                    {
+                    if (integerNumber < 0) {
                         negativeNumbers.add(integerNumber);
-                    }
-                    else
-                    {
-                        if(integerNumber <= 1000) {
+                    } else {
+                        if (integerNumber <= 1000) {
                             result += integerNumber;
                         }
                     }
