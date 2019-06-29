@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calculator {
@@ -10,6 +11,7 @@ public class Calculator {
     }
     public static int Add(String numbers)
     {
+        ArrayList negativeNumbers = new ArrayList<Integer>();
         int result = 0;
         String delimeter = ",|\\\\n";
         if(!numbers.isEmpty()) {
@@ -22,9 +24,25 @@ public class Calculator {
             for(String number : arrayNumbers)
             {
                 if(!number.isEmpty()) {
-                    result += Integer.parseInt(number);
+                    if(Integer.parseInt(number) < 0)
+                    {
+                        negativeNumbers.add(Integer.parseInt(number));
+                    }
+                    else
+                    {
+                        result += Integer.parseInt(number);
+                    }
                 }
             }
+        }
+        if(negativeNumbers.size() > 0)
+        {
+            System.out.print("Negatives not allowed: ");
+            for(Object number : negativeNumbers)
+            {
+                System.out.print(number + " ");
+            }
+            System.out.println();
         }
         return result;
     }
