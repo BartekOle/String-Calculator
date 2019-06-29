@@ -37,12 +37,8 @@ public class Calculator {
         }
         if(negativeNumbers.size() > 0)
         {
-            System.out.print("Negatives not allowed: ");
-            for(Object number : negativeNumbers)
-            {
-                System.out.print(number + " ");
-            }
-            System.out.println();
+            throw new RuntimeException("Negatives not allowed: " + negativeNumbers.toString());
+
         }
         return result;
     }
