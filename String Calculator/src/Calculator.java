@@ -17,8 +17,17 @@ public class Calculator {
         if(!numbers.isEmpty()) {
             if(numbers.startsWith("//"))
             {
-                delimeter = numbers.substring(2, numbers.indexOf("]")+1);
-                numbers = numbers.substring(numbers.indexOf("]")+3);
+                delimeter = "";
+                String helpString = numbers;
+                int numberOfDelimiters = helpString.length() - helpString.replace("[", "").length();
+                int index = 3;
+                for(int i = 0; i < numberOfDelimiters; i++)
+                {
+                    delimeter += numbers.charAt(index);
+                    index += 3;
+                }
+                delimeter = "[" + delimeter + "]";
+                numbers = numbers.substring(index+1);
             }
             String[] arrayNumbers = numbers.split(delimeter);
             for(String number : arrayNumbers) {
