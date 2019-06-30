@@ -23,8 +23,8 @@ public class Calculator {
                 int index = 3;
                 for(int i = 0; i < numberOfDelimiters; i++)
                 {
-                    delimeter += numbers.charAt(index);
-                    index += 3;
+                    delimeter += numbers.substring(index, numbers.indexOf("]", index));
+                    index = numbers.indexOf("]", index) + 2;
                 }
                 delimeter = "[" + delimeter + "]";
                 numbers = numbers.substring(index+1);
